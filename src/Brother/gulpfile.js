@@ -3,10 +3,12 @@ const sass = require('sass');
 const { Transform } = require('stream');
 const path = require('path');
 const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
 const terser = require('gulp-terser');
 
 const paths = {
-  scss: 'Assets/Scss/**/*.scss',
+  scssWatch: 'Assets/Scss/**/*.scss',
+  scss: 'Assets/Scss/main.scss',
   js: 'Assets/Scripts/**/*.js',
   cssDest: 'wwwroot/css',
   jsDest: 'wwwroot/js'
@@ -32,6 +34,7 @@ function styles() {
   return gulp.src(paths.scss)
     .pipe(compileSass())
     .pipe(cleanCSS())
+    .pipe(rename('site.css'))
     .pipe(gulp.dest(paths.cssDest));
 }
 
@@ -45,7 +48,7 @@ function scripts() {
 }
 
 function watch() {
-  gulp.watch(paths.scss, styles);
+  gulp.watch(paths.scssWatch, styles);
   gulp.watch(paths.js, scripts);
 }
 
