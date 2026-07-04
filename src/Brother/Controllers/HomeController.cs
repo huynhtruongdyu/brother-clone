@@ -4,7 +4,9 @@ using System.Diagnostics;
 
 namespace Brother.Controllers
 {
+#pragma warning disable CA1515 // Consider making public types internal
     public class HomeController : Controller
+#pragma warning restore CA1515 // Consider making public types internal
     {
         public IActionResult Index()
         {

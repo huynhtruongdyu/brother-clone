@@ -4,5 +4,6 @@
     <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.27.0.140913" />
   </ItemGroup>
 </Project>

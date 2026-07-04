@@ -21,6 +21,25 @@ indent_size = 2
 
 # C# files
 [*.cs]
+dotnet_diagnostic.CA5394.severity = suggestion
+dotnet_diagnostic.S1144.severity = suggestion
+dotnet_diagnostic.S1186.severity = suggestion
+dotnet_diagnostic.CA1056.severity = suggestion
+dotnet_diagnostic.CA1308.severity = suggestion
+dotnet_diagnostic.CA1515.severity = suggestion
+dotnet_diagnostic.CA1707.severity = suggestion
+dotnet_diagnostic.CA2007.severity = suggestion
+dotnet_diagnostic.CA5394.severity = suggestion
+dotnet_diagnostic.CA1822.severity = suggestion
+dotnet_diagnostic.S2325.severity = suggestion
+dotnet_diagnostic.BL0008.severity = suggestion
+dotnet_diagnostic.S6966.severity = suggestion
+dotnet_diagnostic.CA1848.severity = suggestion
+dotnet_diagnostic.CA1873.severity = suggestion
+dotnet_diagnostic.S125.severity = suggestion
+dotnet_diagnostic.CA1515.severity = silent
+dotnet_diagnostic.S6960.severity = silent
+dotnet_diagnostic.S1075.severity = silent
 
 #### Core EditorConfig Options ####
 
