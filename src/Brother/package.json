@@ -1,0 +1,14 @@
+{
+  "name": "brother",
+  "private": true,
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.80.0"
+  }
+}
