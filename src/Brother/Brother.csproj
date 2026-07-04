@@ -10,6 +10,10 @@
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Brother.Application\Brother.Application.csproj" />
+  </ItemGroup>
+
   <Target Name="RunGulp" BeforeTargets="Build">
     <Exec Command="npm install" />
     <Exec Command="npm run build" />
