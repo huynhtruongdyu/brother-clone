@@ -2,8 +2,7 @@ using Brother.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.Configure<RouteOptions>(options =>
-{
+builder.Services.Configure<RouteOptions>(options => {
     options.LowercaseUrls = true;
     options.AppendTrailingSlash = true;
 });
@@ -11,8 +10,7 @@ builder.Services.Configure<RouteOptions>(options =>
 builder.Services.AddApplication();
 
 var app = builder.Build();
-if (!app.Environment.IsDevelopment())
-{
+if (!app.Environment.IsDevelopment()) {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }

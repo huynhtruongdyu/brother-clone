@@ -1,18 +1,16 @@
 using System.Globalization;
 using System.Text;
+
 using Brother.Application.Models;
 
 namespace Brother.Application.Services;
 
-public class BreadcrumbService : IBreadcrumbService
-{
-    private static readonly Dictionary<string, string> TitleOverrides = new(StringComparer.OrdinalIgnoreCase)
-    {
+public class BreadcrumbService : IBreadcrumbService {
+    private static readonly Dictionary<string, string> TitleOverrides = new(StringComparer.OrdinalIgnoreCase) {
         ["Privacy"] = "Privacy Policy"
     };
 
-    public IReadOnlyCollection<BreadcrumbItem> GetBreadcrumbs(string currentPath)
-    {
+    public IReadOnlyCollection<BreadcrumbItem> GetBreadcrumbs(string currentPath) {
         ArgumentNullException.ThrowIfNull(currentPath);
 
         var items = new List<BreadcrumbItem>
@@ -23,8 +21,7 @@ public class BreadcrumbService : IBreadcrumbService
         var segments = currentPath.Trim('/').Split('/', StringSplitOptions.RemoveEmptyEntries);
 
         var sb = new StringBuilder();
-        for (var i = 0; i < segments.Length; i++)
-        {
+        for (var i = 0; i < segments.Length; i++) {
             sb.Append('/');
             sb.Append(segments[i]);
 
@@ -34,8 +31,7 @@ public class BreadcrumbService : IBreadcrumbService
             if (string.Equals(segments[i], "Index", StringComparison.OrdinalIgnoreCase) && i == segments.Length - 1)
                 continue;
 
-            items.Add(new BreadcrumbItem
-            {
+            items.Add(new BreadcrumbItem {
                 Title = FormatTitle(segments[i]),
                 Url = i == segments.Length - 1 ? null : sb.ToString()
             });
@@ -44,8 +40,7 @@ public class BreadcrumbService : IBreadcrumbService
         return items.AsReadOnly();
     }
 
-    private static string FormatTitle(string segment)
-    {
+    private static string FormatTitle(string segment) {
         if (TitleOverrides.TryGetValue(segment, out var overridden))
             return overridden;
 
